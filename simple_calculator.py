@@ -1,37 +1,48 @@
 def operation():
-    global x, y, sign, result
-    x = float(input("Enter 1st operator: "))
-    y = float(input("Enter 2nd operator: "))
+    global num1, num2, sign, result
+    num1 = float(input("Enter 1st operator: "))
+    num2 = float(input("Enter 2nd operator: "))
     result = 0
-    print(f"Operations that can be performed:\n1. +\n2. -\n3. *\n4. /\n5. %")
+    print(f"Operations that can be performed:\n1. +\n2. -\n3. *\n4. /\n5. %\n6. ^")
     sign = input("Choose the operation (sign) you want to perform: ")
     match sign:
         case '+':
-            result = x+y
+            result = num1+num2
         case '-':
-            result = x-y
+            result = num1-num2
         case '*':
-            result = x*y
+            result = num1*num2
         case '/':
-            result = x/y
+            result = num1/num2
         case '%':
-            result = x%y
+            result = num1%num2
+        case '^':
+            result = pow(num1,num2)
         case _:
             print("Not a valid operation!")
     print(f'Result: {result}')
 
 def is_even():
-    x = int(input("Enter the value: "))
-    if x % 2 == 0:
-        print(f"{x} is even.")
+    num1 = int(input("Enter the value: "))
+    if num1 % 2 == 0:
+        result = f"{num1} is even."
     else:
-        print(f"{x} is odd.")
+        result = f"{num1} is odd."
+    return result
+
 
 def write():
     f = open('history.txt' , 'a', encoding="utf-8")
-    problem = str(f'{x} {sign} {y} = {result}\n')
+    problem = str(f'{num1} {sign} {num2} = {result}\n')
     f.write(problem)
     f.close()
+
+def write_isEven(text):
+    f = open('history.txt' , 'a' , encoding="utf-8")
+    problem = str(f'{text} \n')
+    f.write(problem)
+    f.close()
+
 
 def read():
     with open('history.txt', encoding="utf-8") as f:
@@ -40,17 +51,19 @@ def read():
 
 def main():
     print("Simple Calculator")
-    global i
-    i = 0
-    while(i != 4):
+    global choice
+    choice = 0
+    while(choice != 4):
         print("Choose what you want to do:")
-        i = int(input("1. Perform a Operation\n2. Find odd or even\n3. View History\n4. Exit\n"))
-        match i:
+        choice = int(input("1. Perform a Operation\n2. Find odd or even\n3. View History\n4. Exit\n"))
+        match choice:
             case 1:
                 operation()
                 write()
             case 2:
-                is_even()
+                result = is_even()
+                print(result)
+                write_isEven(result)
             case 3:
                 read()
             case 4:
@@ -59,5 +72,5 @@ def main():
                 print("Not a valid choice!")
 
 
-
-main()
+if __name__ == "__main__":
+    main()
