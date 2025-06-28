@@ -1,12 +1,12 @@
 # name = input("What's your Name? ")
 #
 #
-#For writing in file
+##For writing in file
 # with open('names.txt', 'a') as file:
 #     file.write(f'{name}\n')
 #
 #
-#For printing/reading from a file
+##For printing/reading from a file
 # with open('names.txt', 'r' ) as file:
 #     lines = file.readlines()
 #
@@ -34,7 +34,7 @@
 ##we can add reverse=True to print the names in reverse alphabetical order
 
 
-#For sorting the name during reading the file itself and then printing it
+##For sorting the name during reading the file itself and then printing it
 
 with open('names.txt') as file:
     for line in sorted(file):      

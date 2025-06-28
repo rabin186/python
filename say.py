@@ -1,5 +1,5 @@
 import sys
-from sayings import hello, goodbye
+from sayings import hello, goodbye    #Used to import two functions hello and goodbye from sayings.py file
 
 if len(sys.argv) != 2:
     sys.exit()
