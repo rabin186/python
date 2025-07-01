@@ -1,0 +1,28 @@
+Things that I learned during the todo list proect.
+
+# In a dictionaries in python, it isn't possible to use append function.
+
+# We can access a value assigned in a key in dictionary using the syntax -------> dict_name[n]['key'] where, n is the no. of element we want to access.
+
+
+
+
+
+# We use argparse.ArgumentParser() to create a container which specifies what the argument does. It describes what argument program accepts and creates parser obect.
+
+# What we write inside argparse.ArgumentParser(--here--) is shown when we run --help. prog='ProgramName' is used to show a name of our program whose default value is your filename. description = 'The description of what your program does.'. epilog='The epilog that you want to show on the bottom of the help page.'
+example: 
+parser = argparse.ArgumentParser(prog='',description='',epilog='')
+
+#parser.add_argument('argument_name') is used to tell the parser what argument script accepts.
+parser.add_argument('') #takes an string
+parser.add_argument('', type = int) #takes an integer
+
+#args = parser.parse_args() this is where the parser actually reads and processes the arguments the user gave from the command line and returns them as an object.
+args = parser.parse_args()
+
+
+#We can also create a sub-command using subparsers. Here, sub-command means commands like git add, git status where, git is a command. 
+
+#Subparsers allows us to have multiple commands where each commands have it's own arguments.
+
